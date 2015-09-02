@@ -14,7 +14,9 @@ def compile_best_marketing_roi(quarter, year):
                                                              leases=Count('lease_signed'))
 
     for grouping in first_seen_by_quarter:
+        # find marketing source name for given marketing source id (JOIN in memory, if you will)
         marketing_source_name = MARKETING_SOURCE_NAMES.get(grouping.get('marketing_source'))
+        # if we know how to compute ROI on this marketing source, lets do it
         if marketing_source_name in MARKETING_SOURCE_REGISTRY:
             roi_function = MARKETING_SOURCE_REGISTRY.get(marketing_source_name)
             roi = roi_function(grouping)
