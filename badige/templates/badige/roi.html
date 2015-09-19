@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <title>{% block head_title %} Rentlytics {% endblock %}</title>
+    </head>
+    <body>
+        <h3> Welcome </h3>
+        {% for grouping, roi, name in roi_result %}
+            <p>{{ grouping.leads }} leads and {{ grouping.leases }} leases from {{ name }}. So, cost per lead: {{ roi.cost_per_lead }} at total investment of {{ roi.investment}}</p>
+        {% endfor %}
+    </body>
+</html>

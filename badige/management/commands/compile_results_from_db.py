@@ -8,7 +8,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         if not int(options['year']) in range(2000, 2015) or not int(options['quarter']) in range(1, 5):
             raise CommandError('Please provide valid year (2010-2015) and quarter (1-4)')
-        compile_best_marketing_roi(int(options['quarter']), int(options['year']))
+        compile_best_marketing_roi(int(options['quarter']), int(options['year']), True)
 
     def add_arguments(self, parser):
         # Positional arguments
